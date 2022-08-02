@@ -4,7 +4,7 @@ console.error("Uh oh... Something went wrong.");
 const path = "./log.txt";
 
 try {
-    const contents = await zjs.readFile(patn);
+    const contents = await zjs.readFile(path);
     console.log("Read from a file", contents);
 } catch (err) {
     console.error("Unable to read file", path, err);
