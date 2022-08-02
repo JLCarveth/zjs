@@ -28,4 +28,10 @@
             return core.opSync("op_remove_file", path);
         },
     }
+
+    globalThis.http = {
+        get : (path) => {
+            return core.opAsync("op_http_get_request", path);
+        }
+    }
 })(globalThis);

@@ -6,6 +6,19 @@ use deno_core::error::AnyError;
 use std::rc::Rc;
 use deno_core::op;
 use deno_core::Extension;
+use reqwest;
+
+#[op]
+async fn op_http_get_request(uri : String) -> Result<String, AnyError> {
+    //let http_client = reqwest::Client::new();
+
+    let response = reqwest::get(uri)
+        .await?
+        .text()
+        //.json::<HashMap<String, String>>()
+        .await?;
+    Ok(response)
+}
 
 #[op]
 async fn op_read_file(path : String) -> Result<String, AnyError> {
@@ -32,9 +45,15 @@ async fn zjs(file_path: &str) -> Result<(), AnyError> {
         op_write_file::decl(),
         op_remove_file::decl(),
     ]).build();
+
+    // HTTP Extension
+    let http_extension = Extension::builder().ops(vec![
+        op_http_get_request::decl(),
+    ]).build();
+
     let mut js_runtime = deno_core::JsRuntime::new(deno_core::RuntimeOptions {
         module_loader: Some(Rc::new(deno_core::FsModuleLoader)),
-        extensions : vec![zjs_extension],
+        extensions : vec![zjs_extension, http_extension],
         ..Default::default()
     });
     js_runtime.execute_script("[zjs:runtime.js]", include_str!("./runtime.js")).unwrap();
