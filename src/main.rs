@@ -10,8 +10,6 @@ use reqwest;
 
 #[op]
 async fn op_http_get_request(uri : String) -> Result<String, AnyError> {
-    //let http_client = reqwest::Client::new();
-
     let response = reqwest::get(uri)
         .await?
         .text()
