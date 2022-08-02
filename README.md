@@ -2,7 +2,7 @@
 Recently I saw a blog post which immediately caught my eye; ["Roll your own Javascript runtime"](https://deno.com/blog/roll-your-own-javascript-runtime) written by the folks over at Deno. Given the proliferation of Javascript runtimes over the past few years, I thought *"why not, I'll make my own Javascript runtime"*. The result is quite interesting, with ~100 lines of code we're able to run Javascript outside of a browser, and even send HTTP requests.
 
 ## Requirements
-`z.js` requires `cargo` and `rustc` to be installed. The following versions are confirmed to work:
+`zjs` requires `cargo` and `rustc` to be installed. The following versions are confirmed to work:
 ```
 $ cargo -V
 cargo 1.62.1 (a748cf5a3 2022-06-08)
