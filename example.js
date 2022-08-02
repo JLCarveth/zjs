@@ -1,5 +1,5 @@
 console.log("Hello, zjs!")
-console.error("Uh oh...");
+console.error("Uh oh... Something went wrong.");
 
 const path = "./log.txt";
 
@@ -18,5 +18,6 @@ zjs.removeFile(path);
 console.log("Removed file")
 
 // Try to send an HTTP request
+console.log("Sending a GET HTTP Request")
 let response = await http.get("https://www.uuidtools.com/api/generate/v4");
 console.log(response);
