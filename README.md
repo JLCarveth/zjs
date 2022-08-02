@@ -10,7 +10,7 @@ $ rustc -V
 rustc 1.62.1 (e092d0b6b 2022-07-16)
 ```
 ## Installation
-If you want to try out `z.js` for yourself, follow the steps below:
+If you want to try out `zjs` for yourself, follow the steps below:
 ```
 # Clone the repository
 git clone git@github.com:JLCarveth/zjs.git
